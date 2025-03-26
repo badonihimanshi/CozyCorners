@@ -7,161 +7,109 @@
         display: flex;
         align-items: center;
     }
-
     .btn-search:hover{
         background-color: #fe424d;
         color: #fff;
     }
-
     .btn-search i {
         display: inline;
         margin-right: 0.5rem;
     }
+    /* Mobile/Small Screens (Below 768px) */
+@media (max-width: 768px) {
+    /* Adjust filter icon sizes */
+    .filter i {
+        font-size: 1.5rem; /* Smaller icon size on mobile */
+    }
+
+    .filter p {
+        font-size: 0.8rem; /* Smaller text size */
+    }
+
+    /* Adjust the tax toggle button */
+    .tax-toggle {
+        height: 2.5rem;  /* Smaller height */
+        padding: 0.5rem;  /* Less padding */
+        margin-left: 1rem; /* Less margin on the left */
+    }
+
+    /* Adjust the toggle switch */
+    .form-check-input {
+        transform: scale(0.8);  /* Make the switch smaller */
+    }
+
+    /* Optionally, reduce margin and padding on the filters */
+    .filter {
+        margin-right: 1rem;
+        margin-top: 1rem;
+    }
+
+    /* Make the entire #filters section more compact on mobile */
+    #filters {
+        justify-content: center;
+    }
+}
+  /* Center the search button on the navbar */
+  .navbar-nav.center-search {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar-nav.center-search .d-flex {
+        width: 50%;
+        justify-content: center;
+    }
 
     /* Mobile-specific styles */
     @media (max-width: 768px) {
-        /* Move search bar to the navbar */
-        .navbar-nav.ms-auto {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        /* Hide the toggle button on mobile */
-        .navbar-toggler {
-            display: none;
-        }
-
-        /* Hide extra filters and add a "More" option */
-        .extra-filters {
-            display: none;
-        }
-
-        .more-btn {
-            display: block;
-            cursor: pointer;
+        /* Make the search button smaller */
+        .btn-search {
             padding: 0.5rem 1rem;
-            background-color: #fe424d;
-            color: white;
-            border-radius: 25px;
-            text-align: center;
+            font-size: 0.8rem;
         }
 
-        /* Show the extra filters when "More" button is clicked */
-        .show-more .extra-filters {
-            display: block;
+        .navbar-nav.center-search .d-flex {
+            width: 80%;  /* Adjust search bar width for mobile */
         }
 
-        /* Move search form to the top of navbar */
-        .navbar-nav .d-flex {
-            display: block;
-            width: 100%;
-            margin-top: 0.5rem;
-        }
-
-        .navbar-nav .d-flex .form-control {
-            width: 100%;
-        }
-
-        .navbar-nav .d-flex .btn-search {
-            width: 100%;
-            text-align: center;
+        .navbar-nav.center-search .form-control {
+            font-size: 0.9rem;  /* Slightly smaller input field */
         }
     }
+
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top ">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
-        
-        <!-- Toggle Button for Larger Screens (will hide on mobile) -->
         <button 
           class="navbar-toggler" 
           type="button" 
           data-bs-toggle="collapse" 
-          data-bs-target="#navbarNavAltMarkup">
+          data-bs-target="#navbarNavAltMarkup"
+        >
             <span class="navbar-toggler-icon"></span>
         </button>
-        
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="/listings">Explore</a>
             </div>
-            
-            <!-- Search moved to navbar for mobile -->
-            <div class="navbar-nav ms-auto">
+            <div class="navbar-nav center-search ms-auto">
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-search my-2 my-sm-0" type="submit"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                    <button class="btn btn-search my-2 my-sm-0"  type="submit"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
                 </form>
             </div>
-            
-            <!-- Main navigation links -->
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="/listings/new">CozyCorners your home</a>
                 <% if(!currUser){ %>
                     <a class="nav-link" href="/signup"><b>Sign up</b></a>
                     <a class="nav-link" href="/login"><b>Log in</b></a>
-                <% } %> 
-                <% if(currUser){ %>
+                <% } %> <% if(currUser){ %>
                     <a class="nav-link" href="/logout"><b>Log out</b></a>
                 <% } %>
-            </div>
-            
-            <!-- Extra Filters Section (Hidden on Mobile) -->
-            <div class="navbar-nav ms-auto extra-filters">
-                <div class="filter">
-                    <div><i class="fa-solid fa-fire"></i></div>
-                    <p>Trending</p>
-                </div>
-                <div class="filter">
-                    <div><i class="fa-solid fa-bed"></i></div>
-                    <p>Room</p>
-                </div>
-                <div class="filter">
-                    <div><i class="fa-solid fa-tractor"></i></div>
-                    <p>Farms</p>
-                </div>
-                <div class="filter">
-                    <div><i class="fa-solid fa-mountain"></i></div>
-                    <p>Mountains</p>
-                </div>
-                <div class="filter">
-                    <div><i class="fa-solid fa-snowflake"></i></div>
-                    <p>Arctic</p>
-                </div>
-                <div class="filter">
-                    <div><i class="fa-solid fa-campground"></i></div>
-                    <p>Camping</p>
-                </div>
-                <div class="filter">
-                    <div><i class="fa-brands fa-fort-awesome"></i></div>
-                    <p>Castles</p>
-                </div>
-                <div class="filter">
-                    <div><i class="fa-solid fa-crown"></i></div>
-                    <p>Mansions</p>
-                </div>
-                <div class="filter">
-                    <div><i class="fa-solid fa-person-swimming"></i></div>
-                    <p>Amazing pools</p>
-                </div>
-                <div class="filter">
-                    <div><i class="fa-solid fa-mountain-city"></i></div>
-                    <p>Iconic cities</p>
-                </div>
-            </div>
-            
-            <!-- "More" button to show extra filters on mobile -->
-            <div class="navbar-nav ms-auto more-btn">
-                <span>More</span>
             </div>
         </div>
     </div>
 </nav>
-
-<script>
-    // Toggle visibility of extra filters when "More" is clicked on mobile
-    document.querySelector('.more-btn').addEventListener('click', function() {
-        document.querySelector('.navbar').classList.toggle('show-more');
-    });
-</script>
