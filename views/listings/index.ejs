@@ -32,6 +32,39 @@
     display: flex;
     align-items: center;
   }
+  @media (max-width: 768px) {
+    /* Adjust filter icon sizes */
+    .filter i {
+        font-size: 1.5rem; /* Smaller icon size on mobile */
+    }
+
+    .filter p {
+        font-size: 0.8rem; /* Smaller text size */
+    }
+
+    /* Adjust the tax toggle button */
+    .tax-toggle {
+        height: 2.5rem;  /* Smaller height */
+        padding: 0.5rem;  /* Less padding */
+        margin-left: 1rem; /* Less margin on the left */
+    }
+
+    /* Adjust the toggle switch */
+    .form-check-input {
+        transform: scale(0.8);  /* Make the switch smaller */
+    }
+
+    /* Optionally, reduce margin and padding on the filters */
+    .filter {
+        margin-right: 1rem;
+        margin-top: 1rem;
+    }
+
+    /* Make the entire #filters section more compact on mobile */
+    #filters {
+        justify-content: center;
+    }
+}
 
 </style>
 

@@ -21,6 +21,28 @@ body{
 .nav-link{
     color: #222222 !important;
 }
+.navbar-collapse{
+    color: white;
+}
+
+/* Ensure the navbar has a background color when collapsed */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background-color: #ffffff; /* You can change this to any color */
+        border-radius: 5px; /* Optional: adds rounded corners */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow for better visibility */
+    }
+
+    .navbar-nav {
+        background-color: #ffffff; /* You can customize this if you need a different background */
+    }
+
+    /* Optional: Fix transparency issue with dropdown items */
+    .navbar-nav .nav-link {
+        background-color: transparent; /* Optional: remove transparency */
+    }
+}
+
 
 
 /* footer */
